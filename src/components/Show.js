@@ -16,7 +16,10 @@ const Show = (props) => {
       className={styles.show_item}
     >
       <Link to={link}>
-        <img src={show.image && show.image.medium} alt={show.name} />
+        <img
+          src={show.image ? show.image.medium : "/tvmaze.jpg"}
+          alt={show.name}
+        />
       </Link>
       <h2>{show.name}</h2>
     </motion.li>

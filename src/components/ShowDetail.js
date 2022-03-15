@@ -21,7 +21,10 @@ const Show = (props) => {
       )}
       <div className={styles.show}>
         <div className={styles["img-container"]}>
-          {show.image && <img src={show.image.medium} alt={show.name} />}
+          <img
+            src={show.image ? show.image.medium : "/tvmaze.jpg"}
+            alt={show.name}
+          />
         </div>
         <div className={styles["details-container"]}>
           <h1>{show.name}</h1>

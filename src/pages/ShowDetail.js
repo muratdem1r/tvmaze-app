@@ -17,7 +17,7 @@ const HomePage = () => {
     <React.Fragment>
       {ctx.filtered
         .filter((show) => {
-          return show.id == params.id;
+          return show.id === parseInt(params.id);
         })
         .map((show) => {
           return <ShowDetail show={show} key={show.id} />;
