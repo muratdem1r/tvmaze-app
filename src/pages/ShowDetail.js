@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ShowsContext from "../context/shows-context";
 
@@ -9,9 +9,13 @@ const HomePage = () => {
   const params = useParams();
   const ctx = useContext(ShowsContext);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <React.Fragment>
-      {ctx.shows
+      {ctx.filtered
         .filter((show) => {
           return show.id == params.id;
         })

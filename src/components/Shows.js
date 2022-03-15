@@ -10,6 +10,7 @@ const Shows = () => {
   return (
     <motion.ul layout className={styles.show_list}>
       <AnimatePresence>
+        {ctx.filtered.length === 0 && <p>No matching shows found.</p>}
         {ctx.filtered.map((show) => {
           return <Show show={show} key={show.id} />;
         })}

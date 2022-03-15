@@ -2,6 +2,7 @@ import { useEffect, useContext } from "react";
 
 import Button from "./FilterButton";
 import ShowsContext from "../context/shows-context";
+import Search from "./Search";
 
 const Filter = () => {
   const ctx = useContext(ShowsContext);
@@ -18,11 +19,12 @@ const Filter = () => {
   }, [ctx.activeGenre]);
 
   return (
-    <div>
+    <div className="filter-list">
       <Button genre="All" />
       <Button genre="Action" />
       <Button genre="Drama" />
       <Button genre="Comedy" />
+      <Search />
     </div>
   );
 };

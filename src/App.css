@@ -5,9 +5,46 @@ ul {
 }
 .container {
   margin: 5%;
+  max-width: 1500px;
 }
-@media screen and (min-width: 768px) {
+
+@media screen and (min-width: 1200px) {
   .container {
-    margin: 5% 25%;
+    margin-inline: auto;
   }
+  input[type="search"] {
+    margin-left: auto;
+  }
+  .filter-list {
+    margin-inline: 6rem;
+  }
+}
+.loading {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+.loading svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+svg {
+  background-color: transparent !important;
+}
+input[type="search"] {
+  padding: 0.5rem;
+  border-radius: 100vw;
+  border: 2px solid #627fbe;
+}
+input[type="search"]:focus {
+  outline: none;
+  border-color: #4765a7;
+}
+
+.filter-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }

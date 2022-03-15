@@ -3,7 +3,6 @@ import styles from "./ShowDetail.module.css";
 const Show = (props) => {
   const show = props.show;
   console.log(show);
-
   function escapeHtml(unsafe) {
     return unsafe
       .replace(/<p[^>]*>/g, "")
@@ -13,14 +12,16 @@ const Show = (props) => {
   }
   return (
     <div className={styles["show-details"]}>
-      <img
-        className={styles["bg-img"]}
-        src={show.image.original}
-        alt={show.name}
-      />
+      {show.image && (
+        <img
+          className={styles["bg-img"]}
+          src={show.image.original}
+          alt={show.name}
+        />
+      )}
       <div className={styles.show}>
         <div className={styles["img-container"]}>
-          <img src={show.image.medium} alt={show.name} />
+          {show.image && <img src={show.image.medium} alt={show.name} />}
         </div>
         <div className={styles["details-container"]}>
           <h1>{show.name}</h1>
