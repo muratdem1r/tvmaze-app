@@ -1,15 +1,14 @@
+import React from "react";
 import styles from "./ShowDetail.module.css";
 
 const Show = (props) => {
   const show = props.show;
-  console.log(show);
-  function escapeHtml(unsafe) {
-    return unsafe
-      .replace(/<p[^>]*>/g, "")
-      .replace(/<\/p>/g, "")
-      .replace(/<b[^>]*>/g, "")
-      .replace(/<\/b>/g, "");
-  }
+
+  const div = document.createElement("div");
+  div.innerHTML = show.summary;
+  const summary = div.firstChild;
+
+  console.log(summary);
   return (
     <div className={styles["show-details"]}>
       {show.image && (
@@ -28,7 +27,10 @@ const Show = (props) => {
         </div>
         <div className={styles["details-container"]}>
           <h1>{show.name}</h1>
-          <p className={styles.summary}>{escapeHtml(show.summary)}</p>
+          <p
+            className={styles.summary}
+            dangerouslySetInnerHTML={{ __html: summary.innerHTML }}
+          />
           <div className={styles.info}>
             <div>&#9734;{show.rating.average}</div>
             <div>{show.language}</div>
