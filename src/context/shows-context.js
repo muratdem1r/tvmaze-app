@@ -15,18 +15,17 @@ export const ShowsContextProvider = (props) => {
   const [activeGenre, setActiveGenre] = useState("All");
 
   useEffect(() => {
+    const getShows = async () => {
+      try {
+        const response = await axios.get("https://api.tvmaze.com/shows");
+        setShows(response.data);
+        setFiltered(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
     getShows();
   }, []);
-
-  const getShows = async () => {
-    try {
-      const response = await axios.get("https://api.tvmaze.com/shows");
-      setShows(response.data);
-      setFiltered(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
   return (
     <ShowsContext.Provider
