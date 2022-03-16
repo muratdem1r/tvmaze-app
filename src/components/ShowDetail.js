@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./ShowDetail.module.css";
+import LoadingSpinner from "./ui/loading";
 
 const Show = (props) => {
   const show = props.show;
@@ -8,6 +9,9 @@ const Show = (props) => {
   div.innerHTML = show.summary;
   const summary = div.firstChild;
 
+  if (show.length === 0) {
+    return <LoadingSpinner />;
+  }
   return (
     <div className={styles["show-details"]}>
       {show.image && (

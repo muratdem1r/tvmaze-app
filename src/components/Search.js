@@ -8,12 +8,11 @@ const Search = ({ setCurrentPage }) => {
 
   useEffect(() => {
     const delay = setTimeout(() => {
-      ctx.setActiveGenre("None");
-      setCurrentPage(1);
       if (searchedData.length === 0) {
         ctx.setActiveGenre("All");
         ctx.setFiltered(ctx.shows);
       } else {
+        ctx.setActiveGenre("None");
         const getSearchedData = async (e) => {
           const query = "https://api.tvmaze.com/search/shows?q=" + searchedData;
           try {

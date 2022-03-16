@@ -8,6 +8,7 @@ const Filter = ({ setCurrentPage }) => {
   const ctx = useContext(ShowsContext);
 
   useEffect(() => {
+    setCurrentPage(1);
     if (ctx.activeGenre === "All") {
       ctx.setFiltered(ctx.shows);
       return;
