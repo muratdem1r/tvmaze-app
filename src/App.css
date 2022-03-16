@@ -48,3 +48,33 @@ input[type="search"]:focus {
   align-items: center;
   flex-wrap: wrap;
 }
+.pagination {
+  overflow-x: scroll;
+  padding: 1rem;
+}
+.pagination .page-link {
+  display: grid;
+  place-items: center;
+  outline: none;
+  background-color: white;
+  border: 1px solid #4765a7;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: 350ms;
+  cursor: pointer;
+}
+.pagination .page-link:hover,
+.pagination .page-link.active,
+.pagination .page-link:focus {
+  background-color: #4765a7;
+  text-decoration: none;
+  color: white;
+}
+.pagination::-webkit-scrollbar {
+  height: 1em;
+}
+.pagination::-webkit-scrollbar-thumb {
+  background-color: #4765a7;
+  border-radius: 2em;
+}

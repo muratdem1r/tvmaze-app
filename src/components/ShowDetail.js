@@ -8,7 +8,6 @@ const Show = (props) => {
   div.innerHTML = show.summary;
   const summary = div.firstChild;
 
-  console.log(summary);
   return (
     <div className={styles["show-details"]}>
       {show.image && (

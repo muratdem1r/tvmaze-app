@@ -21,6 +21,9 @@ function App() {
           <Route path="/shows" exact>
             <Home />
           </Route>
+          <Route path="/shows/page/:page" exact>
+            <Home />
+          </Route>
           <Route path="/shows/:id">
             <ShowDetail />
           </Route>

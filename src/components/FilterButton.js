@@ -5,6 +5,12 @@ import styles from "./FilterButton.module.css";
 
 const FilterButton = (props) => {
   const ctx = useContext(ShowsContext);
+
+  const clickHandler = () => {
+    document.querySelector("#search-show").value = "";
+    ctx.setActiveGenre(props.genre);
+  };
+
   return (
     <button
       className={
@@ -12,7 +18,7 @@ const FilterButton = (props) => {
           ? styles.button.concat(" ", styles.active)
           : styles.button
       }
-      onClick={() => ctx.setActiveGenre(props.genre)}
+      onClick={clickHandler}
     >
       {props.genre}
     </button>

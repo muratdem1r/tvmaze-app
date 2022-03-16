@@ -4,7 +4,7 @@ import Button from "./FilterButton";
 import ShowsContext from "../context/shows-context";
 import Search from "./Search";
 
-const Filter = () => {
+const Filter = ({ setCurrentPage }) => {
   const ctx = useContext(ShowsContext);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const Filter = () => {
       <Button genre="Action" />
       <Button genre="Drama" />
       <Button genre="Comedy" />
-      <Search />
+      <Search setCurrentPage={setCurrentPage} />
     </div>
   );
 };
